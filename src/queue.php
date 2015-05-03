@@ -11,6 +11,9 @@
 		// Queuing
 		
 		public function startQueuing() {
+			// Add the homepage to the queue
+			$this->addToQueue($this->getWebsiteUrl());
+
 			// Retrieve the page's HTML
 			$html = file_get_html($this->getWebsiteUrl());
 			
@@ -43,6 +46,7 @@
 			$websiteUrl = Helper::stripProtocol($this->getWebsiteUrl());
 			
 			// Check if the URL of the link contains the given URL to archive.
+			// TODO: Also needs to check for relative links
 			if (stristr($url, $websiteUrl)) {
 				return true;
 			}

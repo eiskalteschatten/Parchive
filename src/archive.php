@@ -26,8 +26,11 @@
 			foreach($this->queue->getUrls() as $url) {
 				$urlInfo = parse_url($url);
 				$fileName = $urlInfo['path'];
+				$pathInfo = pathInfo($fileName);
 				
-				if ($fileName) {
+				if ($pathInfo['extension'] != "html" || $pathInfo['extension'] != "htm" ) {
+					Helper::echoWithSpaces("not .html!");
+					print_r($pathInfo);
 					// If the file name isn't .html, then either make it index.html if it's just a URL without a file at the end or make it .html if it's .php, .asp, etc.
 					// The links within the HTML file itself will also have to be adjusted!
 				}

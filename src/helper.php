@@ -16,5 +16,9 @@
 			
 			return $url;
 		}
+		
+		public static function createDirIfDoesntExist($dir) {
+			
+		}
 	}	
 ?>

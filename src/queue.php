@@ -30,14 +30,14 @@
 			}
 		}
 		
-		public function addToQueue($value) {
+		private function addToQueue($value) {
 			// Check if the URL is already in the quere and add it if it isn't. This avoids duplicate pages.
 			if (!in_array($value, $this->getUrls())) {
 				$this->urls[] = $value;
 			}
 		}
 		
-		public function doesUrlMatchPattern($url) {
+		private function doesUrlMatchPattern($url) {
 			// Strip the protocols from both URLs
 			$url = Helper::stripProtocol($url);
 			$websiteUrl = Helper::stripProtocol($this->getWebsiteUrl());
